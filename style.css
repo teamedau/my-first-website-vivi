@@ -94,23 +94,42 @@ select {
 /* header */
 header .mobile-header {
     padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header button {
     all: unset;
-    cursor: pointer;
 }
 
-header button:focus,
-.btn-primary:focus,
-.contact-form input[type="submit"]:focus {
-    outline: 2px solid var(--brand);
-    outline-offset: 2px;
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 24px;
+        margin-right: 16px;
+    }
+
+    header .mobile-header .hamburger-icon {
+        display: none;
+    }
 }
 
 /* .logo */
 .logo {
     height: 50px;
+}
+
+@media (min-width:768px) {
+    .logo {
+        height: 100px;
+    }
 }
 
 /* .mobile-nav */
@@ -128,12 +147,15 @@ header button:focus,
 
 @media (min-width: 768px) {
     .desktop-nav {
-        display: block;
+        text-decoration: none;
+        font-size: larger;
+        color: var(--black);
     }
-    .mobile-header,
-    .mobile-nav {
-        display: none;
+
+    .desktop-nav {
+        display: flex;
     }
+
 }
 
 /* .hamburger-icon  */
@@ -159,6 +181,28 @@ header button:focus,
     color: var(--action);
 }
 
+@media (min-width: 768px) {
+    .hero {
+        padding: 120px 56px;
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    max-width: 70%;
+}
+
+/* .article-container */
+@media (min-width: 768px) {
+    .article-container {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+}
+
+/* article */
 article {
     padding: 32px 16px;
     background-color: var(--base-light);
@@ -167,8 +211,19 @@ article {
     transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+    article {
+        padding: 56px;
+    }
+}
+
 article:hover {
     filter: contrast(150%);
+}
+
+article .article-heading {
+    display: flex;
+    justify-content: flex-start;
 }
 
 article .icon {
@@ -178,7 +233,7 @@ article .icon {
     margin-right: 10px;
 }
 
-article h2 {
+article .article-heading h2 {
     margin-bottom: 16px;
     color: var(--base-dark);
 }
@@ -229,10 +284,24 @@ article p {
     transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+    .contact-form h2 {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .contact-form {
+        max-width: 60%;
+        margin: 40px auto;
+    }
+}
+
 /* footer */
 footer {
     padding: 16px;
     text-align: center;
+    display:flex;
+    justify-content: space-around;
 }
 
 .socials-icon {
@@ -241,16 +310,26 @@ footer {
 }
 
 @media (min-width: 768px) {
+    footer {
+        justify-content: center;
+    }
+
+    footer .socials-icon {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/* Navigation for larger screens */
+
+@media (min-width: 768px) {
     header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 16px 32px;
     }
-    .logo {
-        display: block;
-        height: 50px;
-    }
+
     .desktop-nav ul {
         display: flex;
         gap: 32px;
@@ -258,9 +337,11 @@ footer {
         margin: 0;
         padding: 0;
     }
+
     .desktop-nav li {
         display: inline-block;
     }
+
     .desktop-nav a {
         text-decoration: none;
         color: var(--black);
@@ -269,6 +350,7 @@ footer {
         border-radius: 4px;
         transition: background 0.2s;
     }
+
     .desktop-nav a:hover {
         background: var(--base-light);
     }
